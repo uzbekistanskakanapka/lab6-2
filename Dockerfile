@@ -1,2 +1,7 @@
-FROM httpd:2.4
-COPY ./public-html/ /usr/local/apache2/htdocs/
+FROM ubuntu
+
+# Install and run apache
+RUN apt-get install -y apache2 && apt-get clean
+
+EXPOSE 80
+CMD apachectl -D FOREGROUND
